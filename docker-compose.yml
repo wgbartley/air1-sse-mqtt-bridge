@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  bridge:
+    image: node:18
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    command: node app.js
+    restart: unless-stopped
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
